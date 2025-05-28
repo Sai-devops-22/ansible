@@ -1,0 +1,22 @@
+- name: mutli play-1
+  hosts: local
+  connection: local
+  tasks:
+  - name: PLAY 1 and Task 1
+    ansible.builtin.debug:
+      msg: "PLAY-1 AND TASK-1"
+
+  - name: PLAY 2 and Task 2
+    ansible.builtin.debug:
+      msg: "PLAY-1 AND TASK-2"
+
+- name: mutli play-2
+  hosts: local
+  tasks:
+  - name: PLAY 1 and Task 1
+    ansible.builtin.debug:
+      msg: "PLAY-1 AND TASK-1"
+
+  - name: PLAY 2 and Task 2
+    ansible.builtin.debug:
+      msg: "PLAY-1 AND TASK-2"
