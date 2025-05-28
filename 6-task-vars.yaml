@@ -2,7 +2,7 @@
   hosts: local
   connection: local
   vars: 
-    COURSE: "DEVOPS"
+    COURSE: "DEVOPS" #global variable
     DURATION: "18HRS"
     TRAINER: "SAI"
   tasks:
@@ -12,6 +12,6 @@
 
   - name: variables
     vars:
-      COURSE: "DEVSECOPS"
+      COURSE: "DEVSECOPS" #local variable
     ansible.builtin.debug:
       msg: "THE {{COURSE}} DURATION IS {{DURATION}} AND TRAINER IS {{TRAINER}}"

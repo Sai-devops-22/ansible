@@ -1,0 +1,9 @@
+- name: vars from file
+  hosts: local
+  connection: local
+  vars_file:
+    -course.yaml
+  tasks:
+  - name: vars from file
+    ansible.builtin.debug:
+      msg: "the corse is {{course}}"
