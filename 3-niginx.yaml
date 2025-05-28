@@ -1,6 +1,6 @@
 - name: install and run nginx
   hosts: frontend
-  beconme: yes  #sudo user
+  become: yes  #sudo user
   tasks:
   - name: install nginx
     ansible.builtin.package:
