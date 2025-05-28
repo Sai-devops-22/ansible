@@ -12,6 +12,7 @@
 
 - name: mutli play-2
   hosts: local
+  connection: local
   tasks:
   - name: PLAY 1 and Task 1
     ansible.builtin.debug:
