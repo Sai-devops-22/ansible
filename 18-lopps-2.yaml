@@ -1,0 +1,11 @@
+- name: loops concept 2
+  hosts: frontend
+  become: yes
+  tasks: 
+  - name: loops
+    ansible.builtin.package:
+      name: "{{item}}"
+      state: present
+    loop:
+    - mysql
+      
