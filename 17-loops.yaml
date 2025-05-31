@@ -4,9 +4,21 @@
   tasks:
   - name: loops in ansible
     ansible.builtin.debug:
-      msg: "hello {{ items }}"
+      msg: "hello {{ item }}"
     
     loops:
     - SURESH
     - RAEMESH
     - KING
+  # - name: loops
+  #   hosts: local
+  #   connection: local
+  #   tasks:
+  #   - name: print names
+  #     ansible.builtin.debug:
+  #       msg: "Hello, {{ item }}" #item here is reserved keyword
+  #     loop:
+  #     - Suresh
+  #     - Ramesh
+  #     - Joseph
+  #     - Raheem
