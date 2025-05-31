@@ -16,7 +16,7 @@
     ansible.builtin.debug:
       msg: "{{ persons | split(',') }}"
 
-  - name: maps
+  - name: maps in to list
     vars:
       student:
         NAME: SAI
@@ -25,3 +25,12 @@
     ansible.builtin.debug:
       msg: "{{ student | dict2items }}"
       
+  - name: lists into maps
+    vars:
+    - {keys: "NAME" , value: "SAI"}
+    - {keys: "ROLLNO" , value: 9}
+    - {"key": "BRANCH", "value": "ECE"}
+    ansible.builtin.debug:
+      msg: "{{ student | items2dict }}"
+
+
