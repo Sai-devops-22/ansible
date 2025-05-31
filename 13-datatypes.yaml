@@ -3,9 +3,9 @@
   connection: local
   vars:
     TOOLS:
-      - LIST
-      - ansible
-      - SHELL
+    - LIST
+    - ansible
+    - SHELL
     CONCEPT:
       SHELL: shell script
       KEY: "KEYS, ARE"
