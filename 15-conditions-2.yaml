@@ -8,7 +8,8 @@
     
 
 - name: conditions to check nginx
-  hosts: frontend
+  hosts: local
+  connection: local
   become: yes
   tasks:
   - name: con
