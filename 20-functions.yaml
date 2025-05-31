@@ -1,7 +1,6 @@
 - name: fuctions
-  hosts: local
-  connection: local
+  hosts: frontend
   tasks:
-  - name: fuctions_
+  - name: hello function
     ansible.builtin.debug:
       msg: "HELLO , {{ person | default('Ramesh') }}"
