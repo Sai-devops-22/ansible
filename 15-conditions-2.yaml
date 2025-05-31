@@ -8,7 +8,7 @@
     
 
 - name: conditions to check nginx
-  hosts: fronted
+  hosts: frontend
   become: yes
   tasks:
   - name: con
