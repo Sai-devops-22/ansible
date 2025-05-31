@@ -1,5 +1,6 @@
 - name: fuctions
-  hosts: frontend
+  hosts: local
+  connection'L local
   tasks:
   - name: fuctions_
     ansible.builtin.debug:
