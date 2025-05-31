@@ -14,4 +14,4 @@
 
   - name: split 
     ansible.built.debug:
-      msg: "{{ person | split(',') }}"
+      msg: "{{ persons | split(',') }}"
