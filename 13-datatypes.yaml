@@ -7,7 +7,7 @@
     -C
   CONCEPT:
     SHELL: "SHELL"
-    KEY: "KEYS ARE"
+    KEY: "KEYS,ARE"
   types:
     - name: data
       ansible.builtin.debug:
