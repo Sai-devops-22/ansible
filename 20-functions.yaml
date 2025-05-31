@@ -1,7 +1,7 @@
 - name: functions
   hosts: local
   connection: local
-  var: 
+  vars: 
     person: "Suresh, Ramesh, Raju"
   tasks:
   - name: hello function
