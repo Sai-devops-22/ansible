@@ -14,4 +14,4 @@
   tasks:
   - name: con
     ansible.builtin.debug:
-      msg: "{{the gather facts}}"
+      msg: "{{ ansible_facts }}"
