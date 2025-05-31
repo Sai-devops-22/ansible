@@ -22,6 +22,6 @@
         NAME: SAI
         ROLLNO: 9
         BRANCH: ECE
-    ansilble.builtin.debug:
+    ansible.builtin.debug:
       msg: "{{ student | dict2items }}"
       
