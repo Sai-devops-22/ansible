@@ -2,9 +2,9 @@
   hosts: local
   connection: local
   vars:
-    - A
-    - B
-    - C
+    - LIST
+    - ansible
+    - SHELL
   CONCEPT:
     SHELL: SHELL
     KEY: "KEYS, ARE"
