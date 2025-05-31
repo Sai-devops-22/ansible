@@ -12,6 +12,6 @@
     ansible.builtin.debug:
       msg: "{{ persons }}"
 
-  - name: split 
-    ansible.built.debug:
+  - name: split_functionality
+    ansible.builtin .debug:
       msg: "{{ persons | split(',') }}"
