@@ -1,0 +1,10 @@
+- name: loops 3
+  hosts: frontend
+  tasks:
+  - name: to check loops 
+    ansible.builtin.debug:
+      name: "{{item.name}}"
+      state: "{{item.state}}"
+    loop:
+    - {name: 'nginx' , state: 'present'}
+    - {name: 'nginx' , state: 'absent'}
