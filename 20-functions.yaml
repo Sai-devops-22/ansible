@@ -28,10 +28,10 @@
   - name: lists into maps
     vars:
       students:
-      - {'keys': "NAME" , 'value': "SAI"}
-      - {'keys': "ROLLNO" , 'value': '9'}
-      - {'key': "BRANCH", 'value': "ECE"}
+        - {'keys': "NAME" , 'value': "SAI"}
+        - {'keys': "ROLLNO" , 'value': '9'}
+        - {'key': "BRANCH", 'value': "ECE"}
     ansible.builtin.debug:
-      msg: "{{ student | items2dict }}"
+      msg: "{{ students | items2dict }}"
 
 
