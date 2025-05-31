@@ -2,12 +2,13 @@
   hosts: local
   connection: local
   vars:
-    - LIST
-    - ansible
-    - SHELL
-  CONCEPT:
-    SHELL: shell script
-    KEY: "KEYS, ARE"
+    TOOLS:
+      - LIST
+      - ansible
+      - SHELL
+    CONCEPT:
+      SHELL: shell script
+      KEY: "KEYS, ARE"
   types:
     - name: data
       ansible.builtin.debug:
