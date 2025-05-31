@@ -1,0 +1,16 @@
+# - name: conditions to check nginx
+#   hosts: frontend
+#   become: yes
+#   tasks:
+#   - name: conditions
+#     ansible.builtin.package:
+#       msg: "installed nginx"
+    
+
+- name: conditions to check nginx
+  hosts: fronted
+  become: yes
+  tasks:
+  - name: con
+    ansible.builtin.debug:
+      msg: "{{the gather facts}}"
