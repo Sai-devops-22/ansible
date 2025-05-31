@@ -2,12 +2,12 @@
   hosts: local
   connection: local
   vars:
-    NUMBER: 11
+    NUMBER: 19
   tasks:
   - name: print number less than
     ansible.builtin.debug:
       msg: "the {{NUMBER}} is less than 11"
-    when: NUMBER <= 11
+    when: NUMBER < 11
 
   - name: print number
     ansible.builtin.debug:
