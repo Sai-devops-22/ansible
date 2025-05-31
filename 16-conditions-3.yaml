@@ -4,13 +4,13 @@
   become: yes
   tasks:
   - name: con
-    ansible.builtin.package:
+    ansible.builtin.dnf:
       name: nginx
       state: present
     when: ansible_os_family == "RedHat"
 
   - name: if con
-    ansible.builtin.package:
+    ansible.builtin.dnf:
       name: dabin
       state: present
     when: ansible_os_family == "Debian"

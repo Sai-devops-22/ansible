@@ -14,7 +14,7 @@
   tasks:
   - name: con
     ansible.builtin.debug:
-      msg: "{{ ansible_facts }}"
+      msg: "{{ ansible_facts }}" #ansible_facts should be given like this
 
 
 ***************************************************************************
