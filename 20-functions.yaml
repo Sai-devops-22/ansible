@@ -7,4 +7,7 @@
   - name: hello function
     ansible.builtin.debug:
       msg: "HELLO , {{ person | default('Ramesh') }}"
+  - name: print names
+    ansible.builtin.debug:
+      msg: "{{ person}}"
 
