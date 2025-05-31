@@ -1,0 +1,14 @@
+- name: data types
+  hosts: local
+  connection: local
+  vars:
+    -A
+    -B
+    -C
+  CONCEPT:
+    SHELL: "SHELL"
+    KEY: "KEYS ARE"
+  types:
+    - name: data
+      ansible.builtin.debug:
+        msg: "THE {{ SHELL }} AND {{ KEYS }}"
