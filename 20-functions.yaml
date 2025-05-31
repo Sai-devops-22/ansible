@@ -1,13 +1,13 @@
-# - name: fuctions
-#   hosts: frontend
-#   tasks:
-#   - name: hello function
-#     ansible.builtin.debug:
-#       msg: "HELLO , {{ person | default('Ramesh') }}"
-
-- name: functions
+- name: fuctions
   hosts: frontend
   tasks:
-    - name: say hello
-      ansible.builtin.debug:
-        msg: "HELLO, {{ person | default('Ramesh') }}"
+  - name: hello function
+    ansible.builtin.debug:
+      msg: "HELLO , {{ person | default('Ramesh') }}"
+
+# - name: functions
+#   hosts: frontend
+#   tasks:
+#     - name: say hello
+#       ansible.builtin.debug:
+#         msg: "HELLO, {{ person | default('Ramesh') }}"
