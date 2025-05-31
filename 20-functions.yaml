@@ -19,9 +19,9 @@
   - name: maps
     vars:
       student:
-        NAME: "SAI"
-        ROLLNO: "9"
-        BRANCH: "ECE"
+        NAME: SAI
+        ROLLNO: 9
+        BRANCH: ECE
     ansilble.builtin.debug:
       msg: "{{ student | dict2items }}"
       
