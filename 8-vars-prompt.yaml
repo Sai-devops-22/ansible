@@ -1,0 +1,15 @@
+- name: prompt testing
+  hosts: local
+  connection: local
+  vars_prompt:
+  - name: USERNAME
+    prompt: ENTER YOUR USERNAME
+    privavte: true
+  
+  - name: PASSWORD
+    prompt: ENTER YOUR PASSWORD
+    private: true
+  tasks:
+    - name: USERNAME and PASSWORD
+      ansible.builtin.debug:
+        msg: "THE {{USERNAME}} AND {{PASSWORD}}"
