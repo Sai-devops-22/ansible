@@ -1,22 +1,22 @@
-# - name: loops
-#   hosts: frontend
-#   become: yes
-#   tasks:
-#   - name: loops in ansible
-#     ansible.builtin.debug:
-#       msg: "hello {{ item }}"
-#     loops:
-#     - SURESH
-#     - RAEMESH
-#     - KING
 - name: loops
   hosts: frontend
+  become: yes
   tasks:
-  - name: print names
+  - name: loops in ansible
     ansible.builtin.debug:
-      msg: "Hello, {{ item }}" #item here is reserved keyword
-    loop:
-    - Suresh
-    - Ramesh
-    - Joseph
-    - Raheem
+      msg: "hello {{ item }}"
+    loops:
+    - SURESH
+    - RAEMESH
+    - KING
+# - name: loops
+#   hosts: frontend
+#   tasks:
+#   - name: print names
+#     ansible.builtin.debug:
+#       msg: "Hello, {{ item }}" #item here is reserved keyword
+#     loop:
+#     - Suresh
+#     - Ramesh
+#     - Joseph
+#     - Raheem
