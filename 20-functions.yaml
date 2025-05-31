@@ -1,5 +1,6 @@
-- name: fuctions
-  hosts: frontend
+- name: functions
+  hosts: local
+  connection: local
   tasks:
   - name: hello function
     ansible.builtin.debug:
