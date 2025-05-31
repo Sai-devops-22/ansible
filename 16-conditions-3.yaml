@@ -7,10 +7,10 @@
     ansible.builtin.package:
       name: nginx
       state: present
-    when: os_family=="RedHat"
+    when: os_family == "RedHat"
 
   - name: if con
     ansible.builtin.package:
       name: dabin
       state: present
-    when: os_family=="Debian"
+    when: os_family == "Debian"
