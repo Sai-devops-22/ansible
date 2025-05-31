@@ -11,4 +11,4 @@
   types:
     - name: data
       ansible.builtin.debug:
-        msg: "THE {{ SHELL }} AND {{ KEYS }}"
+        msg: "THE {{ vars }} AND {{ CONCEPT }}"
