@@ -9,5 +9,5 @@
       msg: "HELLO , {{ person | default('Ramesh') }}"
   - name: print names
     ansible.builtin.debug:
-      msg: "{{ person}}"
+      msg: "{{ person }}"
 
