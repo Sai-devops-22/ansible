@@ -1,7 +1,7 @@
 - name: mysql
   become: yes 
   hosts: mysql
-  vars:
+  vars-file:
   - vault/22.vault.yaml
   tasks:
   - name: installing mysql
