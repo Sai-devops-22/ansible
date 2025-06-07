@@ -1,0 +1,19 @@
+- name: mysql
+  become: yes 
+  hosts: mysql
+  vars:
+  - vault/*.yaml
+  tasks:
+  - name: installing mysql
+    ansible.builtin.dnf:
+      name: mysql-server
+      state: present
+
+  - name: enable and start mysql
+    ansible.builtin.service:
+      name: mysqld
+      state: started
+      enabled: yes
+
+  - name: setp root password
+    ansible.builtin.command: mysql_secure_installation --set-root-pass {{ ROOT_PASSWORD }}
