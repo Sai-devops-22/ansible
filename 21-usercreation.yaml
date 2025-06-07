@@ -6,3 +6,13 @@
     ansible.builtin.command: id roboshop
     register: output
     ignore_errors: true
+
+  - name: user check failed so adding user
+    become: yes
+    ansible.builtin.command: useradd roboshop
+    when: output.rc != 0 
+
+  - name: already exist
+    ansible.builtin.debug:
+      msg: "already exist"
+    when: output.rc == 0
