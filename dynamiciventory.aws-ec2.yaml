@@ -7,4 +7,4 @@ filters:
 hostnames:
   - private-ip-address
 compose:
-  amisble_hosts: private_ip_address
+  amisble_host: private_ip_address
