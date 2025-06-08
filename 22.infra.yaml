@@ -13,8 +13,8 @@
     amazon.aws.ec2_instance:
       name: "{{ item }}"
       subnet_id: "{{ subnet }}"
-      security_grp: "{{ security }}"
-      ami_id: "{{ ami }}"
+      security_groups: "{{ security }}"
+      image_id: "{{ ami }}"
       instance_type: t3.micro
     loop: "{{ instances }}"
     register: output
