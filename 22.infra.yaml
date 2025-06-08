@@ -9,11 +9,16 @@
     security: sg-028aa04b4b0793ed4
     ami: ami-09c813fb71547fc4f
   tasks:
-    name: "{{ item }}"
-    subnet_id: "{{ subnet }}"
-    security_grp: "{{ security }}"
-    ami_id: "{{ ami }}"
-    instance_type: t3.micro
+  - name: crate ec2
+    amazon.aws.ec2_instance:
+      name: "{{ item }}"
+      subnet_id: "{{ subnet }}"
+      security_grp: "{{ security }}"
+      ami_id: "{{ ami }}"
+      instance_type: t3.micro
     loop: "{{ instances }}"
-    
-    
+    register: output
+
+  - name: output
+    ansible.builtin.debug:
+      msg: "{{ output }}"    
