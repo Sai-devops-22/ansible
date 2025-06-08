@@ -3,8 +3,8 @@
   connection: local
   vars:
     instances:
-      - mysql
-      - rabbitmq
+    - mysql
+    - rabbitmq
     subnet: subnet-015410576f74af059
     security: sg-028aa04b4b0793ed4
     ami: ami-09c813fb71547fc4f
@@ -21,4 +21,4 @@
 
   - name: output
     ansible.builtin.debug:
-      msg: "{{ output }}"    
+      msg: "{{ output }}"   
