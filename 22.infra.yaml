@@ -6,13 +6,13 @@
       - mysql
       - rabbitmq
     subnet: subnet-015410576f74af059
-    security_grp: sg-028aa04b4b0793ed4
-    ami_id: ami-09c813fb71547fc4f
+    security: sg-028aa04b4b0793ed4
+    ami: ami-09c813fb71547fc4f
   tasks:
     name: "{{ item }}"
     subnet_id: "{{ subnet }}"
+    security_grp: "{{ security }}"
     ami_id: "{{ ami }}"
-    ami: "{{ ami_id }}"
     instance_type: t3.micro
     loop: "{{ instances }}"
     
