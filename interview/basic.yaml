@@ -42,7 +42,7 @@
         msg: "{{ COURSE }}"
 
     - name: play file vars in ansible
-      vars:
+      vars_files:
         - course.yaml
       ansible.builtin.debug:
         msg: "{{ COURSE }}"
