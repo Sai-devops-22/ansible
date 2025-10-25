@@ -55,8 +55,8 @@
     prompt: "ENTER YOUR EMPID"
     private: true
   tasks:
-    name: printing
-    ansible.builtin.debug:
-      msg: "youe empid is {{ EMP }}"
+    - name: printing
+      ansible.builtin.debug:
+        msg: "youe empid is {{ EMP }}"
     
 
