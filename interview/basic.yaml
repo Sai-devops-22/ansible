@@ -4,9 +4,23 @@
 #     - name: ping the server
 #       ansible.builtin.ping:
 
-- name: printing
+# - name: printing
+#   hosts: frontend
+#   tasks:
+#     - name: hello
+#       ansible.builtin.debug:
+#         msg: "hello world"
+
+- name: nginx
   hosts: frontend
   tasks:
-    - name: hello
-      ansible.builtin.debug:
-        msg: "hello world"
+    - name: installing nginx
+      ansible.builtin.package:
+        name: nginx
+        state: present
+    - name: running nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
+
