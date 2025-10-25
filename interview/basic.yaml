@@ -60,18 +60,34 @@
 #         msg: "youe empid is {{ EMP }}"
     
 
-- name: datatypes
+# - name: datatypes
+#   hosts: frontend
+#   vars:
+#     LIST:
+#     - SHELL
+#     - ansible
+#     - teraform
+#     DICT:
+#       SHELL: FIRST
+#       ANSIBLE: SECOND
+#       TERAFORM: THIRD
+#   tasks:
+#     - name: printing data types
+#       ansible.builtin.debug:
+#         msg: printing {{ LIST }} and {{ DICT }}
+
+
+- name: conditions
   hosts: frontend
   vars:
-    LIST:
-    - SHELL
-    - ansible
-    - teraform
-    DICT:
-      SHELL: FIRST
-      ANSIBLE: SECOND
-      TERAFORM: THIRD
+    num: 1
   tasks:
-    - name: printing data types
+    - name: conditions in ansible
       ansible.builtin.debug:
-        msg: printing {{ LIST }} and {{ DICT }}
+        msg: "printing num {{ num }} which is greater than 11"
+      when: num > 11
+
+    - name: conditions in ansible
+      ansible.builtin.debug:
+        msg: "printing num {{ num }} which is less than 11"
+      when: num < 11
