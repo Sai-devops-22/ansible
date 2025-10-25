@@ -4,7 +4,7 @@
 #     - name: ping the server
 #       ansible.builtin.ping:
 
-- name: printing hello
+- name: printing
   hosts: frontend
   tasks:
     -name: hello
