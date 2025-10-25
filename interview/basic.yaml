@@ -77,17 +77,17 @@
 #         msg: printing {{ LIST }} and {{ DICT }}
 
 
-- name: conditions
-  hosts: frontend
-  vars:
-    num: 12
-  tasks:
-    - name: conditions in ansible
-      ansible.builtin.debug:
-        msg: "printing num {{ num }} which is greater than 11"
-      when: num > 11
+# - name: conditions
+#   hosts: frontend
+#   vars:
+#     num: 12
+#   tasks:
+#     - name: conditions in ansible
+#       ansible.builtin.debug:
+#         msg: "printing num {{ num }} which is greater than 11"
+#       when: num > 11
 
-    - name: conditions in ansible
-      ansible.builtin.debug:
-        msg: "printing num {{ num }} which is less than 11"
-      when: num < 11  
+#     - name: conditions in ansible
+#       ansible.builtin.debug:
+#         msg: "printing num {{ num }} which is less than 11"
+#       when: num < 11  
