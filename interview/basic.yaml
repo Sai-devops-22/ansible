@@ -10,3 +10,4 @@
   tasks:
     ansible.builtin.debug:
       msg: "hello world"
+      
