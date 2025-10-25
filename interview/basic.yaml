@@ -1,5 +1,12 @@
-- name: basic
-  hosts: frontend
+# - name: basic
+#   hosts: frontend
+#   tasks:
+#     - name: ping the server
+#       ansible.builtin.ping:
+
+- name: printing hello
+  hosts: local
+  connection: local #it won't ask password
   tasks:
-    - name: ping the server
-      ansible.builtin.ping:
+    ansible.builtin.debug:
+      msg: "hello world"
