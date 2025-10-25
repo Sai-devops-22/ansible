@@ -68,9 +68,9 @@
     - ansible
     - teraform
     DICT:
-    SHELL: FIRST
-    ANSIBLE: SECOND
-    TERAFORM: THIRD
+      SHELL: FIRST
+      ANSIBLE: SECOND
+      TERAFORM: THIRD
   tasks:
     - name: printing data types
       ansible.builtin.debug:
