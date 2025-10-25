@@ -26,26 +26,26 @@
 #         enabled: yes
 
 
-- name: play vars
-  hosts: frontend
-  vars:
-    COURSE: DEVOPS
-  vars_files:
-  - course.yaml
-  tasks:
-    - name: play vars in ansible
-      ansible.builtin.debug:
-        msg: "{{ COURSE }}"
+# - name: play vars
+#   hosts: frontend
+#   vars:
+#     COURSE: DEVOPS
+#   vars_files:
+#   - course.yaml
+#   tasks:
+#     - name: play vars in ansible
+#       ansible.builtin.debug:
+#         msg: "{{ COURSE }}"
 
-    - name: play tasks vars in ansible
-      vars:
-        COURSE: AWS
-      ansible.builtin.debug:
-        msg: "{{ COURSE }}"
+#     - name: play tasks vars in ansible
+#       vars:
+#         COURSE: AWS
+#       ansible.builtin.debug:
+#         msg: "{{ COURSE }}"
 
-    - name: play file vars in ansible
-      ansible.builtin.debug:
-        msg: "{{ COURSE }}"
+#     - name: play file vars in ansible
+#       ansible.builtin.debug:
+#         msg: "{{ COURSE }}"
 
 # - name: prompt
 #   hosts: local
@@ -60,3 +60,18 @@
 #         msg: "youe empid is {{ EMP }}"
     
 
+- name: datatypes
+  hosts: frontend
+  vars:
+    LIST:
+    - SHELL
+    - ansible
+    - teraform
+    DICT:
+    SHELL: FIRST
+    ANSIBLE: SECOND
+    TERAFORM: THIRD
+  tasks:
+    - name: printing data types
+      ansible.builtin.debug:
+        msg: printing {{ LIST }} and {{ DICT }}
