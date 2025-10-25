@@ -26,37 +26,37 @@
 #         enabled: yes
 
 
-# - name: play vars
-#   hosts: frontend
-#   vars:
-#     COURSE: DEVOPS
-#   vars_files:
-#   - course.yaml
-#   tasks:
-#     - name: play vars in ansible
-#       ansible.builtin.debug:
-#         msg: "{{ COURSE }}"
-
-#     - name: play tasks vars in ansible
-#       vars:
-#         COURSE: AWS
-#       ansible.builtin.debug:
-#         msg: "{{ COURSE }}"
-
-#     - name: play file vars in ansible
-#       ansible.builtin.debug:
-#         msg: "{{ COURSE }}"
-
-- name: prompt
-  hosts: local
-  connection: local
-  vars_prompt:
-    name: EMP
-    prompt: "ENTER YOUR EMPID"
-    private: true
+- name: play vars
+  hosts: frontend
+  vars:
+    COURSE: DEVOPS
+  vars_files:
+  - course.yaml
   tasks:
-    - name: printing
+    - name: play vars in ansible
       ansible.builtin.debug:
-        msg: "youe empid is {{ EMP }}"
+        msg: "{{ COURSE }}"
+
+    - name: play tasks vars in ansible
+      vars:
+        COURSE: AWS
+      ansible.builtin.debug:
+        msg: "{{ COURSE }}"
+
+    - name: play file vars in ansible
+      ansible.builtin.debug:
+        msg: "{{ COURSE }}"
+
+# - name: prompt
+#   hosts: local
+#   connection: local
+#   vars_prompt:
+#     name: EMP
+#     prompt: "ENTER YOUR EMPID"
+#     private: true
+#   tasks:
+#     - name: printing
+#       ansible.builtin.debug:
+#         msg: "youe empid is {{ EMP }}"
     
 
