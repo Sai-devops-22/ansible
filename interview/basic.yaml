@@ -35,3 +35,9 @@
       ansible.builtin.debug:
         msg: "{{ COURSE }}"
 
+    - name: play tasks vars in ansible
+      vars:
+        COURSE: AWS
+      ansible.builtin.debug:
+        msg: "{{ COURSE }}"
+
