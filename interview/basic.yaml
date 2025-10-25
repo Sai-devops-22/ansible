@@ -11,17 +11,26 @@
 #       ansible.builtin.debug:
 #         msg: "hello world"
 
-- name: nginx
+# - name: nginx
+#   hosts: frontend
+#   become: yes   
+#   tasks:
+#     - name: installing nginx
+#       ansible.builtin.package:
+#         name: nginx
+#         state: present
+#     - name: running nginx
+#       ansible.builtin.service:
+#         name: nginx
+#         state: started
+#         enabled: yes
+
+
+- name: play vars
   hosts: frontend
-  become: yes   
+  vars:
+    COURSE: DEVOPS
   tasks:
-    - name: installing nginx
-      ansible.builtin.package:
-        name: nginx
-        state: present
-    - name: running nginx
-      ansible.builtin.service:
-        name: nginx
-        state: started
-        enabled: yes
+    ansible.builtin.debug:
+      msg: "{{ COURSE }}"
 
