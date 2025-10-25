@@ -31,6 +31,7 @@
   vars:
     COURSE: DEVOPS
   tasks:
-    ansible.builtin.debug:
-      msg: "{{ COURSE }}"
+    - name: play vars in ansible
+      ansible.builtin.debug:
+        msg: "{{ COURSE }}"
 
