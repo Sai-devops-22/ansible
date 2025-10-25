@@ -41,3 +41,11 @@
       ansible.builtin.debug:
         msg: "{{ COURSE }}"
 
+    - name: play file vars in ansible
+      vars:
+        - course.yaml
+      ansible.builtin.debug:
+        msg: "{{ COURSE }}"
+      
+    
+
