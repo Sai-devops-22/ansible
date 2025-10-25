@@ -5,9 +5,7 @@
 #       ansible.builtin.ping:
 
 - name: printing hello
-  hosts: local
-  connection: local #it won't ask password
+  hosts: frontend
   tasks:
     ansible.builtin.debug:
       msg: "hello world"
-      
