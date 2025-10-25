@@ -80,7 +80,7 @@
 - name: conditions
   hosts: frontend
   vars:
-    num: 1
+    num: 12
   tasks:
     - name: conditions in ansible
       ansible.builtin.debug:
@@ -90,4 +90,4 @@
     - name: conditions in ansible
       ansible.builtin.debug:
         msg: "printing num {{ num }} which is less than 11"
-      when: num < 11
+      when: num < 11  
