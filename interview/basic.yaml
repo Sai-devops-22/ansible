@@ -92,13 +92,23 @@
 #         msg: "printing num {{ num }} which is less than 11"
 #       when: num < 11  
 
-- name: loops
+# - name: loops
+#   hosts: frontend
+#   tasks:
+#     - name: loops in ansible
+#       ansible.builtin.debug:
+#         msg: "{{ item.first_course }}"
+#         msg: "{{ item.state}}"
+#       loop:
+#       - {first_course: "mysql", state: "present"}
+#       - {first_course: "sql", state: "present"}
+
+- name: functions
   hosts: frontend
+  vars:
+    persons: "ravi,raju"
   tasks:
-    - name: loops in ansible
+    - name: functions in ansible
       ansible.builtin.debug:
-        msg: "{{ item }}"
-      loop:
-      - mysql
-      - sql
-      - devops
+        msg: "{{ persons | default('ramu') }}"
+      
