@@ -153,6 +153,6 @@
   tasks:
     - name: printing USERNAME
       ansible.builtin.debug:
-        msg: {{ USERNAME }}
+        msg: "{{ USERNAME }}"
 
 
