@@ -124,12 +124,12 @@
 
     - name: mongodb
       ansible.builtin.df:
-        name: mongodb
+        name: mongodb-org
         state: present
 
     - name: enabling the mongodb 
       ansible.builtin.service:
-        name: mongodb
+        name: mongodb-org
         state: started
         enabled: yes
 
@@ -143,5 +143,35 @@
       ansible.builtin.service:
         name: mongodb
         state: restarted
+
+# - name: mongo
+#   hosts: mongodb
+#   tasks:
+#   - name: copying db
+#     ansible.builtin.copy:
+#       src: mongo.repo
+#       dest: etc/yum.repos.d/mongo.repo 
+  
+#   - name: installing db
+#     ansible.builtin.df:
+#       name: mongodb-org
+#       state: present
+
+#   - name: enabling and start db
+#     ansible.builtin.service:
+#       name: mongodb-org
+#       state: started
+#       enabled: yes
+  
+#   - name: allow remote connections
+#     ansible.builtin.replace:
+#       path: /etc/mongod.conf
+#       regexp: '127.0.0.1'
+#       replace: '0.0.0.0'
+
+#   - name: restarting mongodb
+#     ansible.builtin.service:
+#       name: mongodb-org
+#       state: restarted
 
 
