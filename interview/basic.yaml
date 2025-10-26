@@ -145,7 +145,8 @@
 #         state: restarted
 
 - name: prompt files
-  hosts: mongodb
+  hosts: local
+  connection: local
   vars_prompt:
     name: USERNAME
     prompt: "enter USERNAME:"
