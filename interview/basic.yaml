@@ -97,7 +97,7 @@
   tasks:
     - name: loops in ansible
       ansible.builtin.debug:
-        msg: "{{ items }}"
+        msg: "{{ item }}"
       loop:
       - mysql
       - sql
