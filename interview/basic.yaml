@@ -116,7 +116,7 @@
 - name: copying repo by ansible
   hosts: frontend
   become: yes
-  taks:
+  tasks:
     - name: cpot repo from mongodb.repo
       ansible.builtin.copy:
       src: mongo.repo
