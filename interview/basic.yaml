@@ -113,65 +113,46 @@
 #         msg: "{{ persons | default('ramu' , true) }}"  #if the persons is empty then ramu will print
 
 
-- name: copying repo by ansible
-  hosts: frontend
-  become: yes
-  tasks:
-    - name: copying repo from mongodb.repo
-      ansible.builtin.copy:
-        src: mongo.repo
-        dest: /etc/yum.repos.d/mongo.repo
-
-    - name: mongodb
-      ansible.builtin.dnf:
-        name: mongodb-org
-        state: present
-
-    - name: enabling the mongodb 
-      ansible.builtin.service:
-        name: mongod
-        state: started
-        enabled: yes
-
-    - name: replace by ansible
-      ansible.builtin.replace:
-        path: /etc/mongod.conf
-        regexp: '127.0.0.1'
-        replace: '0.0.0.0'
-
-    - name: restarting the service
-      ansible.builtin.service:
-        name: mongod
-        state: restarted
-
-# - name: mongo
-#   hosts: mongodb
+# - name: copying repo by ansible
+#   hosts: frontend
+#   become: yes
 #   tasks:
-#   - name: copying db
-#     ansible.builtin.copy:
-#       src: mongo.repo
-#       dest: etc/yum.repos.d/mongo.repo 
-  
-#   - name: installing db
-#     ansible.builtin.df:
-#       name: mongodb-org
-#       state: present
+#     - name: copying repo from mongodb.repo
+#       ansible.builtin.copy:
+#         src: mongo.repo
+#         dest: /etc/yum.repos.d/mongo.repo
 
-#   - name: enabling and start db
-#     ansible.builtin.service:
-#       name: mongodb-org
-#       state: started
-#       enabled: yes
-  
-#   - name: allow remote connections
-#     ansible.builtin.replace:
-#       path: /etc/mongod.conf
-#       regexp: '127.0.0.1'
-#       replace: '0.0.0.0'
+#     - name: mongodb
+#       ansible.builtin.dnf:
+#         name: mongodb-org
+#         state: present
 
-#   - name: restarting mongodb
-#     ansible.builtin.service:
-#       name: mongodb-org
-#       state: restarted
+#     - name: enabling the mongodb 
+#       ansible.builtin.service:
+#         name: mongod
+#         state: started
+#         enabled: yes
 
+#     - name: replace by ansible
+#       ansible.builtin.replace:
+#         path: /etc/mongod.conf
+#         regexp: '127.0.0.1'
+#         replace: '0.0.0.0'
+
+#     - name: restarting the service
+#       ansible.builtin.service:
+#         name: mongod
+#         state: restarted
+
+- name: prompt files
+  hosts: frontend
+  vars:
+    name: USERNAME
+    prompt: "enter USERNAME:"
+    private: true
+  tasks:
+    - name: printing USERNAME
+      ansible.builtin.debug:
+        msg: {{ USERNAME }}
+        
 
