@@ -103,13 +103,62 @@
 #       - {first_course: "mysql", state: "present"}
 #       - {first_course: "sql", state: "present"}
 
-- name: functions
-  hosts: frontend
-  vars:
-    persons: 
-  tasks:
-    - name: functions in ansible
-      ansible.builtin.debug:
-        msg: "{{ persons | default('ramu' , true) }}"  #if the persons is empty then ramu will print
+# - name: functions
+#   hosts: frontend
+#   vars:
+#     persons: 
+#   tasks:
+#     - name: functions in ansible
+#       ansible.builtin.debug:
+#         msg: "{{ persons | default('ramu' , true) }}"  #if the persons is empty then ramu will print
 
-      
+
+- name: copying repo by ansible
+  hosts: frontend
+  become: yes
+  taks:
+    - name: cpot repo from mongodb.repo
+      ansible.builtin.copy:
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
+
+
+- name: installing mongodb by ansible
+  hosts: frontend
+  become: yes
+  tasks:
+    - name: mongodb
+      ansible.builtin.df:
+        name: mongodb
+        state: present
+
+- name: enabling the mongodb by ansible
+  hosts: frontend
+  become: yes
+  tasks:
+    - name: enabling the mongodb 
+      ansible.builtin.service:
+        name: mongodb
+        state: started
+        enabled: yes
+
+- name: replace by ansible
+  hosts: frontend
+  become: yes
+  tasks:
+    - name: replace by ansible
+      ansible.builtin.replace:
+        path: /etc/mongod.conf
+        regexp: '127.0.0.1'
+        replace: '0.0.0.0'
+
+- name: restarting
+  hosts: frontend
+  become: yes
+  tasks:
+    - name: restarting the service
+      ansible.builtin.service:
+        name: mongodb
+        state: restarted
+
+
