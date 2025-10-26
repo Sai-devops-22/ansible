@@ -110,6 +110,6 @@
   tasks:
     - name: functions in ansible
       ansible.builtin.debug:
-        msg: "{{ persons | default('ramu') }}"  #if the persons is empty then ramu will print
+        msg: "{{ persons | default('ramu' , true) }}"  #if the persons is empty then ramu will print
 
       
