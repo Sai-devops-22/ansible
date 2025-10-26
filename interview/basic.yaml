@@ -106,10 +106,10 @@
 - name: functions
   hosts: frontend
   vars:
-    persons: "ravi,raju"
+    persons: 
   tasks:
     - name: functions in ansible
       ansible.builtin.debug:
-        msg: "{{ persons | default('ravi') }}"
+        msg: "{{ persons | default('ramu') }}"  #if the persons is empty then ramu will print
 
       
