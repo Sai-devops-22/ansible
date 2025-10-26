@@ -95,9 +95,10 @@
 - name: loops
   hosts: frontend
   tasks:
-    ansible.builtin.debug:
-      msg: "{{ items }}"
-  loop:
-  - mysql
-  - sql
-  - devops
+    - name: loops in ansible
+      ansible.builtin.debug:
+        msg: "{{ items }}"
+      loop:
+      - mysql
+      - sql
+      - devops
