@@ -11,19 +11,19 @@
 #       ansible.builtin.debug:
 #         msg: "hello world"
 
-- name: nginx
-  hosts: frontend
-  become: yes   
-  tasks:
-    - name: installing nginx
-      ansible.builtin.package:
-        name: nginx
-        state: present
-    - name: running nginx
-      ansible.builtin.service:
-        name: nginx
-        state: started
-        enabled: yes
+# - name: nginx
+#   hosts: frontend
+#   become: yes   
+#   tasks:
+#     - name: installing nginx
+#       ansible.builtin.package:
+#         name: nginx
+#         state: present
+#     - name: running nginx
+#       ansible.builtin.service:
+#         name: nginx
+#         state: started
+#         enabled: yes
 
 
 # - name: play vars
@@ -91,3 +91,13 @@
 #       ansible.builtin.debug:
 #         msg: "printing num {{ num }} which is less than 11"
 #       when: num < 11  
+
+- name: loops
+  hosts: frontend
+  tasks:
+    ansible.builtin.debug:
+      msg: "{{ items }}"
+  loop:
+  - mysql
+  - sql
+  - devops
