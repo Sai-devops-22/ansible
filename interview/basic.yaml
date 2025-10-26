@@ -146,7 +146,7 @@
 
 - name: prompt files
   hosts: frontend
-  vars:
+  vars_prompt:
     name: USERNAME
     prompt: "enter USERNAME:"
     private: true
@@ -154,5 +154,5 @@
     - name: printing USERNAME
       ansible.builtin.debug:
         msg: {{ USERNAME }}
-        
+
 
