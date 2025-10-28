@@ -158,9 +158,7 @@
 
 
 
-- name: DEPLOYMENT
-  hosts: local
-  connection: local
+
   tags: 
     - deployment
   include_role:
