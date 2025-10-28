@@ -1,0 +1,8 @@
+- name: install nginx
+  hosts: local
+  connection: local
+  taks:
+    - name: installing nginx
+      ansible.builtin.service:
+        name: nginx
+        state: present

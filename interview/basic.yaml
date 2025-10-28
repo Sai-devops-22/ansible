@@ -157,3 +157,15 @@
         msg: "{{ USERNAME }}"
 
 
+
+- name: DEPLOYMENT
+  hosts: local
+  connection: local
+  tags: 
+    - deployment
+  import_role:
+    name: common
+    tasks_from: deployment
+      
+
+
