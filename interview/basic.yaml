@@ -144,17 +144,17 @@
 #         name: mongod
 #         state: restarted
 
-- name: prompt files
-  hosts: local
-  connection: local
-  vars_prompt:
-    name: USERNAME
-    prompt: "enter USERNAME:"
-    private: true
-  tasks:
-    - name: printing USERNAME
-      ansible.builtin.debug:
-        msg: "{{ USERNAME }}"
+# - name: prompt files
+#   hosts: local
+#   connection: local
+#   vars_prompt:
+#     name: USERNAME
+#     prompt: "enter USERNAME:"
+#     private: true
+#   tasks:
+#     - name: printing USERNAME
+#       ansible.builtin.debug:
+#         msg: "{{ USERNAME }}"
 
 
 
