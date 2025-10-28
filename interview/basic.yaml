@@ -158,7 +158,7 @@
 
 
 
-- name: printing deployment
+- name: DEPLOYMENT
   tags: 
     - deployment
   include_role:
