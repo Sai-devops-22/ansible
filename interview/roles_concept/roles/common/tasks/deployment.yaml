@@ -1,0 +1,6 @@
+- name: stop nginx
+  tags: 
+  - deploy
+  ansible.builtin.service:
+    name: nginx
+    state: stopped

@@ -1,0 +1,6 @@
+- name: roles
+  hosts: local
+  connection: local
+  become: yes
+  roles:
+    nginx
