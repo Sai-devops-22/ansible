@@ -185,4 +185,4 @@
     - name: ignore if already exist
       ansible.builtin.debug:
         msg: "already exist"
-        when: output.rc == 0
+      when: output.rc == 0
