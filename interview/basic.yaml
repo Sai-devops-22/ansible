@@ -170,6 +170,7 @@
 - name: check user
   hosts: local
   connection: local
+  become: yes
   tasks:
     - name: check the user
       ansible.builtin.command: id roboshop
@@ -177,6 +178,7 @@
       ignore_errors: yes
     
     - name: add user
+      become: yes
       ansible.builtin.command: useradd roboshop
       when: output.rc != 0
 
