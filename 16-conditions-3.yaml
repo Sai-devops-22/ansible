@@ -10,7 +10,7 @@
     when: ansible_os_family == "RedHat" #ansible_os_family is builtin
 
   - name: if con
-    ansible.builtin.dnf:
+    ansible.builtin.apt:
       name: dabian
       state: present
     when: ansible_os_family == "Debian"

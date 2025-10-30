@@ -158,10 +158,29 @@
 
 
 
-- name: DEPLOYMENT
-  tags: 
-    - deployment
-  include_role:
-    name: common
-    tasks_from: deployment
+# - name: DEPLOYMENT
+#   tags: 
+#     - deployment
+#   include_role:
+#     name: common
+#     tasks_from: deployment
       
+###########check user creation
+
+- name: check user
+  hosts: local
+  connection: local
+  tasks:
+    - name: check the user
+      ansible.builtin.command: id roboshop
+      register: output
+      ignore_errors: yes
+    
+    - name: add user
+      ansible.builtin.command: useradd roboshop
+      when: output.rc != 0
+
+    - name: ignore if already exist
+      ansible.builtin.debug:
+        msg: "already exist"
+        when: output.rc == 0
