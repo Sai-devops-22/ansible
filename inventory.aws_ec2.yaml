@@ -11,8 +11,8 @@ filters:
   tag:Name: frontend
   instance-state-name : running
 
-hostnames:
+hostnames:   #by what need to call
   - private_ip_address
 
-compose:
+compose:  #assign the ansible_host variable for connection
   ansible_host: private_ip_address
