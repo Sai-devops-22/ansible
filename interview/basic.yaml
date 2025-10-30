@@ -191,7 +191,7 @@
 - name: vault 
   hosts: local
   connection: local
-  vars:
+  vars_files:
     - locaker/vault
   tasks:
     - name: calling vault
