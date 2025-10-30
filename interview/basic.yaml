@@ -167,22 +167,34 @@
       
 ###########check user creation
 
-- name: check user
+# - name: check user
+#   hosts: local
+#   connection: local
+#   become: yes
+#   tasks:
+#     - name: check the user
+#       ansible.builtin.command: id roboshop
+#       register: output
+#       ignore_errors: yes
+    
+#     - name: add user
+#       become: yes
+#       ansible.builtin.command: useradd roboshop
+#       when: output.rc != 0
+
+#     - name: ignore if already exist
+#       ansible.builtin.debug:
+#         msg: "already exist"
+#       when: output.rc == 0
+
+
+- name: vault 
   hosts: local
   connection: local
-  become: yes
+  vars:
+    - locaker/vault
   tasks:
-    - name: check the user
-      ansible.builtin.command: id roboshop
-      register: output
-      ignore_errors: yes
-    
-    - name: add user
-      become: yes
-      ansible.builtin.command: useradd roboshop
-      when: output.rc != 0
-
-    - name: ignore if already exist
+    - name: calling vault
       ansible.builtin.debug:
-        msg: "already exist"
-      when: output.rc == 0
+        msg: the password is {{ my_password }}
+    
