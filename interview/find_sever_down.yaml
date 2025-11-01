@@ -21,6 +21,7 @@
 - name: checking the server
   hosts: frontend
   gather_facts: no
+  become: yes
   tasks:
     - name: save the result of server
       ansible.builtin.ping:
@@ -40,7 +41,7 @@
 
     - name: rebooting serbers
       ansible.builtin.reboot:
-        reboot_timeout: 600   #Wait up to 600 seconds for the host to finish rebooting and reconnect via SSH
+        reboot_timeout: 60   #Wait up to 600 seconds for the host to finish rebooting and reconnect via SSH
       when: ping_result.ping is defined and ping_result.ping == 'pong'
 
     - name: Print status of reboot
