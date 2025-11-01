@@ -1,0 +1,50 @@
+# - name: checking the server
+#   hosts: local
+#   connection: local
+#   tasks:
+#     - name: save response of each server
+#       ansible.builtin.ping:
+#         register: ping_result
+#         ignore_errors: yes
+#         ignore_unreachable: yes
+    
+#     - name: find which server is unreachable 
+#       ansible.builtin.debug:
+#         msg: "{{ inventory_hostname }} is not working"
+#       when: ping_result.unreachable is defined and ping_result.unreachable == true
+
+#     - name: find which server is reachable 
+#       ansible.builtin.debug:
+#         msg: "{{ inventory_hostname }} is working"
+#       when: ping_result.ping is defined and ping_result.ping == 'pong'
+
+- name: checking the server
+  hosts: frontend
+  gather_facts: no
+  tasks:
+    - name: save the result of server
+      ansible.builtin.ping:
+      register: ping_result
+      ignore_errors: yes
+      ignore_unreachable: yes
+    
+    - name: find unreachable server
+      ansible.builtin.debug:
+        msg: "{{ inventory_hostname }} is not working"
+      when: ping_result.unreachable is defined and ping_result.unreachable == true
+
+    - name: find reachable server
+      ansible.builtin.debug:
+        msg: "{{ inventory_hostname }} is working"
+      when: ping_result.ping is defined and ping_result.ping == 'pong'
+
+    - name: rebooting serbers
+      ansible.builtin.reboot:
+        reboot_timeout: 600   #Wait up to 600 seconds for the host to finish rebooting and reconnect via SSH
+      when: ping_result.ping is defined and ping_result.ping == 'pong'
+
+    - name: Print status of reboot
+      ansible.builtin.debug:
+        msg: "{{ inventory_hostname }} rebooted successfully."
+      when: ping_result.ping is defined and ping_result.ping == 'pong'
+  

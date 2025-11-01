@@ -188,13 +188,59 @@
 #       when: output.rc == 0
 
 
-- name: vault 
-  hosts: local
-  connection: local
-  vars_files:
-    - locaker/vault
+# - name: vault 
+#   hosts: local
+#   connection: local
+#   vars_files:
+#     - locaker/vault  (in terminal)
+#   tasks:
+#     - name: calling vault
+#       ansible.builtin.debug:
+#         msg: the password is {{ my_password }} (given in vault editor)
+
+
+
+- name: Check which servers are up
+  hosts: all
+  gather_facts: no
   tasks:
-    - name: calling vault
+    - name: Ping the server
+      ansible.builtin.ping:
+      register: ping_result
+      ignore_unreachable: yes
+      ignore_errors: yes
+
+    - name: Report unreachable servers
       ansible.builtin.debug:
-        msg: the password is {{ my_password }}
+        msg: "{{ inventory_hostname }} is unreachable!"
+      when: ping_result.unreachable is defined and ping_result.unreachable == true
+
+    - name: Report reachable servers
+      ansible.builtin.debug:
+        msg: "{{ inventory_hostname }} is reachable."
+      when: ping_result.ping is defined and ping_result.ping == 'pong'
+
+
+- name: Restart all reachable servers
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Ping to check if reachable
+      ansible.builtin.ping:
+      register: ping_result
+      ignore_unreachable: yes
+      ignore_errors: yes
+
+    - name: Reboot reachable servers
+      ansible.builtin.reboot:
+        msg: "Automated reboot by Ansible"
+        reboot_timeout: 600
+      when: ping_result.ping is defined and ping_result.ping == 'pong'
+
+    - name: Print status of reboot
+      ansible.builtin.debug:
+        msg: "{{ inventory_hostname }} rebooted successfully."
+      when: ping_result.ping is defined and ping_result.ping == 'pong'
+
+
     
