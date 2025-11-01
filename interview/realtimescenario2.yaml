@@ -1,0 +1,17 @@
+- name: Update component safely
+  hosts: all
+  serial: 10
+  become: yes
+  tasks:
+    - name: Install the package
+      ansible.builtin.dnf:
+        name: "{{ component }}"
+        state: present
+
+    - name: Restart service if applicable
+      ansible.builtin.service:
+        name: "{{ component }}"
+        state: restarted
+        enabled: yes
+      when: component_service is defined
+

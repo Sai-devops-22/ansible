@@ -6,4 +6,4 @@
   tasks:
   - name: variables from file
     ansible.builtin.debug:
-      msg: "the corse is {{CORSCOURSE}}"
+      msg: "the corse is {{COURSE}}"
